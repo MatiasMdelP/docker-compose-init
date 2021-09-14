@@ -37,3 +37,8 @@ docker-compose-down:
 docker-compose-logs:
 	docker-compose -f docker-compose-dev.yaml logs -f
 .PHONY: docker-compose-logs
+
+docker-server-test:
+	docker build -t ubuntu-nc:latest ./netcat
+	docker run --tty --rm -i --network docker-compose-init_testing_net ubuntu-nc:latest nc server 12345
+.PHONY: docker-server-test

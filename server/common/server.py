@@ -24,6 +24,14 @@ class Server:
             client_sock = self.__accept_new_connection()
             self.__handle_client_connection(client_sock)
 
+    def stop(self):
+        """
+        Stop the server
+
+        Closes the socket
+        """
+        self._server_socket.close()
+
     def __handle_client_connection(self, client_sock):
         """
         Read message from a specific client socket and closes the socket

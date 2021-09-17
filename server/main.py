@@ -52,8 +52,8 @@ def main():
         raise
 
     # Sets the handler for the SIGTERM signal
-    signal.signal(signal.SIGTERM, server.stop)
-    signal.signal(signal.SIGINT, server.stop)
+    signal.signal(signal.SIGTERM, stop_signal_handler)
+    signal.signal(signal.SIGINT, stop_signal_handler)
 
     server.run()
 
